@@ -21,3 +21,13 @@ def txt_to_hash(endereco = "test.txt")
 end
     
 txt_to_hash()
+
+
+
+#Quantos bytes são necessários para armazenar o seguinte array: [1,2,3,4]. Justifique sua resposta.
+# Não há metodos especificos para ver o tamanho do array, porém individualmente seria
+x = 0
+[1,2,3,4].map {|v| x += (v.bit_length)}
+
+#x = 8 bits ou 1 byte
+#Obs: o tamanho do array é igual a soma dos objetos nele, ou seja, a soma do tamanho de cada item. 
