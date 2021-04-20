@@ -1,6 +1,7 @@
 def txt_to_hash(endereco = "test.txt")
     arquivo = File.new(endereco, "r")
     linhas = arquivo.readlines
+    arquivo.close
     palavras = linhas.map {|lines| lines.chomp.downcase.split}
     palavras_diferentes = []
     qt_palavras = 0
