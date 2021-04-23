@@ -37,7 +37,7 @@ def busca_min(coluna, matriz)
     return state
 end
 
-puts "Estados com maior número de vacinados #{busca_max(:vaccination, matriz)}", "Estados com menor número de vacinados #{busca_min(:vaccination, matriz)}"
-puts "Estados com maior número de casos confirmados #{busca_max(:confirmed, matriz)}", "Estados com menor número de casos confirmados #{busca_min(:confirmed, matriz)}"
-puts "Estados com mais obitos #{busca_max(:deaths, matriz)}", "Estados com menos obitos #{busca_min(:deaths, matriz)}"
+puts "Estados com maior número de vacinados --> #{busca_max(:vaccination, matriz)}", "Estados com menor número de vacinados --> #{busca_min(:vaccination, matriz)}"
+puts "Estados com maior número de casos confirmados --> #{busca_max(:confirmed, matriz)}", "Estados com menor número de casos confirmados --> #{busca_min(:confirmed, matriz)}"
+puts "Estados com mais obitos --> #{busca_max(:deaths, matriz)}", "Estados com menos obitos --> #{busca_min(:deaths, matriz)}"
 puts "Total de Vacinados #{total_vaccnination}", "Total de Casos Confirmados #{total_confirmed}", "Total de Mortes #{total_deaths}"
