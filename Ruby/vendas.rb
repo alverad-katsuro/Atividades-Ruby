@@ -5,13 +5,20 @@ class Salario
       @vendas = vendas
     end
     
-    def calcular_salario_com_bonus
+    def calcular_bonus
       if @vendas > 10
-        (@bonus.call @salario) + @salario
+        "id: #{@bonus.object_id} Proc: #{@bonus}"
+      else
+        bonus = 0
       end
     end
-  end
-  
-  x = Salario.new 11
-  puts x.calcular_salario_com_bonus
-  
+
+    def salario_final
+        @salario + calcular_bonus()
+    end
+end
+
+if caller.length == 0
+    x = Salario.new 11
+    puts x.calcular_bonus
+end
