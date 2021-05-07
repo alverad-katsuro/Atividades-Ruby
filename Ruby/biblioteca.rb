@@ -19,10 +19,9 @@ class Biblioteca
         end
         livros = livros.sort.to_h
         livros.map do |key, value|
-            value.each do |livro|
-                puts "#{livro} de #{key}"
-            end
+            puts "#{key} autor de #{value[0]} do genero #{value[1]}"
         end
+        return livros
     end
 
     def output_alfa_livro
@@ -37,51 +36,57 @@ class Biblioteca
         end
         livros = livros.sort.to_h
         livros.map do |key, value|
-            value.each do |autor|
-                puts "#{key} de #{autor}"
-            end
+            puts "#{key} do autor #{value[0]} do genero #{value[1]}"
         end
+        return livros
     end
 end
 
 class Livros
-    def initialize (nome_do_livro, autor)
+    def initialize (nome_do_livro, autor, genero)
         @nome_do_livro = nome_do_livro
         @autor = autor
+        @genero = genero
     end
 
     def to_s
-        "Nome do livro: #{@nome_do_livro} Nome do autor: #{@autor}"
+        "Nome do livro: #{@nome_do_livro}; Nome do autor: #{@autor}; Genêro: #{@genero}"
     end
 
     def return_autor_livro
-        return {@autor.to_sym => [@nome_do_livro]}
+        return {@autor.to_sym => [@nome_do_livro, @genero]}
     end
 
     def return_livro_autor
-        return {@nome_do_livro.to_sym => [@autor]}
+        return {@nome_do_livro.to_sym => [@autor, @genero]}
     end
 end
 
 
 
+def chama_tudo
+    liv = Livros.new "Calculo", "Guidorize", "Matematica"
+    liv2 = Livros.new "The Wheel of Time", "Jordan", "Ficção"
+    liv3 = Livros.new "Senhor dos Aneis", "Tolkin", "Ficção"
+    liv4 = Livros.new "Mar Despedacado", "N lembrooo", "Ficção"
+    liv5 = Livros.new "Memórias Postumas de Brás Cubas", "Machado de Assis", "Romance"
+    biblioteca = Biblioteca.new
+    biblioteca.adicionar_livro liv2
+    biblioteca.adicionar_livro liv3
+    biblioteca.adicionar_livro liv
+    biblioteca.adicionar_livro liv4
+    biblioteca.adicionar_livro liv5
+    system('cls')
+    puts "################################"
+    puts "Alfabetico - Autores\n\n"
+    biblioteca.output_alfa_autor
+    puts " "
+    puts "################################"
+    puts "Alfabetico - Livros \n\n"
+    biblioteca.output_alfa_livro
+end
 
-liv = Livros.new "Calculo", "Guidorize"
-liv2 = Livros.new "The Wheel of Time", "Jordan"
-liv3 = Livros.new "Senhor dos Aneis", "Tolkin"
-liv4 = Livros.new "Mar Despedacado", "N lembrooo"
-liv5 = Livros.new "Memórias Postumas de Brás Cubas", "Machado de Assis"
-biblioteca = Biblioteca.new
-biblioteca.adicionar_livro liv2
-biblioteca.adicionar_livro liv3
-biblioteca.adicionar_livro liv
-biblioteca.adicionar_livro liv4
-biblioteca.adicionar_livro liv5
-system('cls')
-puts "################################"
-puts "Alfabetico - Autores\n\n"
-biblioteca.output_alfa_autor
-puts " "
-puts "################################"
-puts "Alfabetico - Livros \n\n"
-biblioteca.output_alfa_livro
+
+if caller.length == 0
+    chama_tudo()
+end
